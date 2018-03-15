@@ -1,0 +1,65 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.add-post-wrapper {
+  margin: 10px;
+  padding-bottom: 10px;
+}
+
+.add-post-input-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-post-generic-button {
+  font-size: 14px;
+  padding: 5px;
+  width: 120px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.add-post-generic-button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.add-post-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.add-post-title {
+  margin-right: 10px
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

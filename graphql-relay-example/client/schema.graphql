@@ -1,0 +1,63 @@
+input CreatePostInput {
+  description: String!
+  imageUrl: String!
+}
+
+type CreatePostPayload {
+  viewer: Viewer!
+  clientMutationId: String!
+  post: PostEdge
+}
+
+type Mutation {
+  createPost(input: CreatePostInput!): CreatePostPayload!
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type Post implements Node {
+  id: ID!
+  description: String!
+  imageUrl: String!
+}
+
+type PostConnection {
+  pageInfo: PageInfo!
+  edges: [PostEdge]
+}
+
+type PostEdge {
+  node: Post
+  cursor: String!
+}
+
+type Query {
+  viewer: Viewer!
+  node(id: ID!): Node
+}
+
+type User {
+  name: String!
+}
+
+type Viewer {
+  allPosts(last: Int): PostConnection
+  id: ID!
+}
+
