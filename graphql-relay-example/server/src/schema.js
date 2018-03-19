@@ -105,7 +105,16 @@ module.exports = `
         post: PostEdge
     }
 
+    input DeletePostInput {
+        id: ID!
+    }
+
+    type DeletePostPayload {
+        deletedId: ID
+    }
+
     type Mutation {
         createPost(input: CreatePostInput!): CreatePostPayload!
+        deletePost(input: DeletePostInput!): DeletePostPayload!
     }
 `;

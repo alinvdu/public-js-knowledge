@@ -1,9 +1,11 @@
 import React from 'react';
 
 import { createFragmentContainer, graphql } from 'react-relay';
+import deletePostMutation from './../mutations/DeletePost';
 
 class Post extends React.Component {
     handleDelete() {
+        deletePostMutation(this.props.post.id, this.props.viewer);
     }
 
     render() {
@@ -18,7 +20,7 @@ class Post extends React.Component {
                 />
                 <div className="pt3">
                     {this.props.post.description}
-                    <span className="red f6 pointer dim" onClick={this.handleDelete}>Delete</span>
+                    <span className="red f6 pointer dim" onClick={this.handleDelete.bind(this)}>Delete</span>
                 </div>
             </div>
         );

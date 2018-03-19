@@ -22,4 +22,8 @@ exports.createPost = (description, imageUrl) => new Promise((resolve, reject) =>
     newPost.save().then(post => resolve(post)).catch(err => reject(err));
 });
 
+exports.deletePost = id => new Promise((resolve, reject) => {
+    Post.findOneAndRemove({ id }).then(() => resolve()).catch(err => reject(err));
+});
+
 exports.getPosts = () => new Promise((resolve, reject) => Post.find().then(posts => resolve(posts)).catch(err => reject(err)));

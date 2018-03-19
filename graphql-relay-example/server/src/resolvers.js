@@ -30,6 +30,17 @@ module.exports = {
             } catch(err) {
                 throw new Error(err);
             }
+        },
+        deletePost: async (parent, { input }, { Post }) => {
+            try {
+                await Post.deletePost(input.id);
+
+                return {
+                    deletedId: input.id
+                };
+            } catch(err) {
+                throw new Error(err);
+            }
         }
     }
 }

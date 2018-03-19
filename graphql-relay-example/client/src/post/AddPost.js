@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import CreatePostMutation from './../mutations/CreatePost';
+import { toggleAddPostDetails } from './../localMutations/mutations';
 
 export default class AddPost extends Component {
     state = {
-        showAddPostFields: false,
         description: null,
         imageUrl: null      
     };
 
     render() {
-        const { showAddPostFields } = this.state;
+        const { showAddPostDetails } = this.props.viewer;
         return (
             <div className="w-100 flex justify-center">
                 <div className="bb add-post-wrapper" style={{ width: 560 }}>
-                {!showAddPostFields ? 
+                {!showAddPostDetails ? 
                     (
                         <div
                             className="add-post-generic-button ba"
-                            onClick={() => this.setState({showAddPostFields: true})}>
+                            onClick={() => toggleAddPostDetails(this.props.viewer.id, true)}>
                             ADD POST
                         </div>
                     ) :
@@ -35,7 +35,7 @@ export default class AddPost extends Component {
                                 }} className="add-post-generic-button ba">Add</span>
                                 <span
                                     className="add-post-generic-button ba"
-                                    onClick={() => this.setState({showAddPostFields: false})}
+                                    onClick={() => toggleAddPostDetails(this.props.viewer.id, false)}
                                 >
                                     Back
                                 </span>
